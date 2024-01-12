@@ -1,13 +1,12 @@
 {% extends "base.html" %}
-{% block title %}
-About Page
-{% endblock title %}
+{% block title %}Home Page{% endblock title %}
 {% block content %}
-{% include "partials/_title.html" with titulo="Acerca de l app" %}
+{% include "partials/_title.html" with titulo="Bienvenido ala Aplicacion" %}
 <div class="card border-danger mb-3" style="max-width: 20rem;">
     <div class="card-header">Header</div>
     <div class="card-body">
       <h4 class="card-title">Danger card title</h4>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
+</div>
 {% endblock content %}
