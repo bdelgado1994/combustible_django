@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% include "partials/_title.html" with titulo="Login" %}
+{% block content %}
+{% include "partials/_card_start.html" with titulo="Indica las Credenciales de Acceso" %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-success" type="submit">Acceder</button>
+</form>
+{% include "partials/_card_end.html" %}
+{% endblock content %}

@@ -5,7 +5,14 @@
 <div class="card border-danger mb-3" style="max-width: 20rem;">
     <div class="card-header">Header</div>
     <div class="card-body">
-      <h4 class="card-title">Danger card title</h4>
+      <h4 class="card-title">
+        {% if user.is_authenticated %}
+          Hola {{ user.email }}
+        {% else %}
+          <a href="{% url 'user:login' %}">Login</a>
+          <a href="{% url 'user:login2' %}">Login2</a>
+        {% endif %}
+      </h4>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
 </div>

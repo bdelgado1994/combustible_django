@@ -134,4 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Para customUser
 AUTH_USER_MODEL="user.User"
 
+LOGIN_REDIRECT_URL="core:home"
+
 
