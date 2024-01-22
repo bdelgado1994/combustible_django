@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock title %}
+{% block content %}
+{% include "partials/_title.html" with titulo="Registrar Usuario" %}
+{% include "partials/_card_start.html" with titulo="New User" %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-warning">Registrar</button>
+</form>
+{% include "partials/_card_end.html" %}
+{% endblock content %}

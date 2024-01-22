@@ -4,9 +4,8 @@
 {% include "partials/_card_start.html" with titulo="Login 2" %}
 <form method="post">
   {% csrf_token %}
-
   <div class="form-group mb-2">
-    <label class="col-form-label mt-4" for="inputDefault">Default input</label>
+    <label class="col-form-label mt-4" for="inputDefault"></label>
     <input id="id_username" type="text" class="form-control" placeholder="UserName" name="username">
   </div>
   <div class="form-floating">
