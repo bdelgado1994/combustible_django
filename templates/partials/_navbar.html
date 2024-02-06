@@ -1,5 +1,5 @@
 {% load socialaccount %}
-{% providers_media_js %}
+
 <div class="bs-docs-section clearfix mx-2">
     <div class="row">
         <div class="bs-component">
@@ -12,16 +12,36 @@
                   <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="navbar-nav me-auto">
                       <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'bases:home' %}">Inicio
                         <!--
-                          <span class="visually-hidden">(current)</span>
-                          -->
+                        <a class="nav-link active" href="{% url 'bases:home' %}">Inicio
                         </a>
+                        -->
+                        <div class="nav-link"
+                          hx-get="{% url 'bases:home' %}"
+                          hx-push="true"
+                          hx-trigger="click"
+                          hx-target="#body"
+                          hx-swap="outerHTML"
+                        >
+                          Inicio
+                        </div>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'pages:about' %}">About</a>
+                            <div class="nav-link" 
+                                hx-get="{% url 'pages:about' %}"
+                                hx-push="true"
+                                hx-trigger="click"
+                                hx-target="#body"
+                                hx-swap="outerHTML"
+                                >About</div>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="{% url 'user:register' %}">Registrar</a>
+                          <div class="nav-link" 
+                              hx-get="{% url 'user:register' %}"
+                              hx-push="true"
+                              hx-trigger="click"
+                              hx-target="#body"
+                              hx-swap="outerHTML"
+                              >Registrar</div>
                       </li>
                       </li>
                       <li class="nav-item dropdown">
@@ -44,12 +64,29 @@
                         <button class="nav-link text-white" type="submit">Salir</button>
                     </form>                    
                       {% else %}
-                      <a href="{% url 'google_login' %}" class="nav-link text-white mx-3 border-info-subtle">
+                      <a 
+                          href="{% url 'google_login' %}" 
+                          class="nav-link text-white mx-3 border-info-subtle"
+                          >
                         <i class="fab fa-google"></i>
                         Inicio
                       </a>               
-                        <a class="nav-link text-white mx-3" href="{% url 'user:register' %}">Registrar</a>
-                        <a href="{% url 'user:login2' %}" class="nav-link text-white">Login</a>
+                        <div
+                            class="nav-link text-white mx-3" 
+                            hx-get="{% url 'user:register' %}"
+                            hx-push="true"
+                            hx-trigger="click"
+                            hx-target="#body"
+                            hx-swap="outerHTML"
+                            >Registrar</div>
+                        <div 
+                        hx-get="{% url 'user:login2' %}" 
+                        hx-push="true"
+                        hx-trigger="click"
+                        hx-target="#body"
+                        hx-swap="outerHTML"
+                        class="nav-link text-white"
+                        >Login</div>
                       {% endif %}
                     </div>
                   </div>

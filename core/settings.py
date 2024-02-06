@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.facebook",
+    "django_htmx",
     # own apps
     "bases",
     "user",
@@ -62,6 +63,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # Add the account middleware:
     "allauth.account.middleware.AccountMiddleware",
+    #HTMX
+     "django_htmx.middleware.HtmxMiddleware"
 ]
 
 ROOT_URLCONF = "core.urls"

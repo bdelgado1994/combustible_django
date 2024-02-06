@@ -2,7 +2,7 @@
 {% include "partials/_title.html" with titulo="Login" %}
 {% block content %}
 {% include "partials/_card_start.html" with titulo="Login 2" %}
-<form method="post">
+<form hx-post="{% url 'user:login2' %}" hx-target="#body">
   {% csrf_token %}
   <div class="form-group mb-2">
     <label class="col-form-label mt-4" for="inputDefault"></label>

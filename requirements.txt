@@ -6,3 +6,4 @@ psycopg[binary]
 django-crispy-forms==2.0
 crispy-bootstrap5==0.7
 django-allauth==0.60.1
+django-htmx==1.17.2
