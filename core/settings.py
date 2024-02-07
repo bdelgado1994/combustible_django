@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "bases",
     "user",
     "paginas",
+    "ctrl_comb"
 ]
 
 MIDDLEWARE = [

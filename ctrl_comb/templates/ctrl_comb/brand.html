@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% include "partials/_title.html" with titulo="Marca Vehiculo" %}
+{% block content %}
+{% include "partials/_card_start.html" with titulo="Marca" %}
+<div class="row">
+    <div class="col-md-5">
+        <div id="frm">
+            {% include 'ctrl_comb/brand-frm.html' %}
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div id="list">
+            {% include 'ctrl_comb/brand-list.html' %}
+        </div>
+    </div>
+</div>
+{% include "partials/_card_end.html" %}
+{% endblock content %}

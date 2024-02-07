@@ -23,4 +23,5 @@ urlpatterns = [
     path("pages/", include("paginas.urls", "pages")),
     path("users/", include("user.urls", "user")),
     path('accounts/', include('allauth.urls')),
+    path("control/",include(("ctrl_comb.urls","control"),namespace="control"))
 ]

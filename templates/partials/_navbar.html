@@ -16,19 +16,19 @@
                         <a class="nav-link active" href="{% url 'bases:home' %}">Inicio
                         </a>
                         -->
-                        <div class="nav-link"
+                        <a class="nav-link"
                           hx-get="{% url 'bases:home' %}"
-                          hx-push="true"
+                          hx-push-url="true"
                           hx-trigger="click"
                           hx-target="#body"
                           hx-swap="outerHTML"
                         >
                           Inicio
-                        </div>
+                        </a>
                         <li class="nav-item">
                             <div class="nav-link" 
                                 hx-get="{% url 'pages:about' %}"
-                                hx-push="true"
+                                hx-push-url="true"
                                 hx-trigger="click"
                                 hx-target="#body"
                                 hx-swap="outerHTML"
@@ -37,7 +37,7 @@
                         <li class="nav-item">
                           <div class="nav-link" 
                               hx-get="{% url 'user:register' %}"
-                              hx-push="true"
+                              hx-push-url="true"
                               hx-trigger="click"
                               hx-target="#body"
                               hx-swap="outerHTML"
@@ -47,7 +47,15 @@
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Catalogos</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Marcas</a>
+                          <a 
+                            class="dropdown-item" 
+                            href="#"
+                            hx-get="{% url 'control:brand_list' %}"
+                            hx-target="#body"
+                            hx-trigger="click"
+                            hx-push-url="true"
+                            hx-swap="outerHTML"
+                            >Marcas</a>
                           <a class="dropdown-item" href="#">Vehiculos</a>
                           <a class="dropdown-item" href="#">Modelos</a>
                           <!--
@@ -74,14 +82,14 @@
                         <div
                             class="nav-link text-white mx-3" 
                             hx-get="{% url 'user:register' %}"
-                            hx-push="true"
+                            hx-push-url="true"
                             hx-trigger="click"
                             hx-target="#body"
                             hx-swap="outerHTML"
                             >Registrar</div>
                         <div 
                         hx-get="{% url 'user:login2' %}" 
-                        hx-push="true"
+                        hx-push-url="true"
                         hx-trigger="click"
                         hx-target="#body"
                         hx-swap="outerHTML"

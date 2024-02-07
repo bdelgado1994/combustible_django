@@ -1,0 +1,52 @@
+<form class="d-flex align-item-center" method="post">
+<fieldset>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="form-label">Id</label>
+                <input 
+                        type="text" 
+                        class="form-control" 
+                        aria-describedby="idhelp" 
+                        name="id"  
+                        id="id" 
+                        placeholder="Id" 
+                        readonly 
+                        value="{{ obj.id }}"
+                >
+                <small id="idhelp" class="form-text text-muted">Id</small>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="form-label">Description</label>
+                <input 
+                        type="text" 
+                        class="form-control" 
+                        aria-describedby="descriptionhelp" 
+                        name="description"  
+                        id="description" 
+                        placeholder="Description" 
+                        readonly 
+                        value="{{ obj.description }}"
+                >
+                <small id="descriptionhelp" class="form-text text-muted">Descripcion</small>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+        <div class="col-md-6">
+            <button 
+                    type="button" 
+                    class="btn btn-info"
+                    hx-get="{% url 'control:brand_list' %}"
+                    hx-target="#body"
+            >Cancelar
+        </button>
+        </div>
+    </div>
+</fieldset>
+</form>
