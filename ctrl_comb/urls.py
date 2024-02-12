@@ -1,5 +1,8 @@
 from django.urls import path
 from ctrl_comb.views import *
 urlpatterns = [
-    path("brand",BrandList.as_view(),name="brand_list")
+    path("brand",BrandList.as_view(),name="brand_list"),
+    path("brand/save",save_brand,name="save_brand"),
+    path("brand/delete/<int:pk>",brand_delete,name="delete_brand"),
+    path("brand/edit/<int:pk>",brand_edit,name="edit_brand")
 ]

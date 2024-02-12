@@ -10,11 +10,22 @@
     <tbody>
         {% for o in obj %}
             <tr>
-                <td>{{ o.id }}</td>
+                <td>{{ forloop.counter }}</td>
                 <td>{{ o.description }}</td>
                 <td>
-                    <i class="bi bi-trash3" style="cursor: pointer;"></i>
-                    <i class="bi bi-pencil-square" style="cursor: pointer;"></i>
+                    <i 
+                        class="bi bi-trash3" 
+                        style="cursor: pointer;"
+                        hx-delete="{% url 'control:delete_brand' o.id %}"
+                        hx-target="#list"
+                        hx-confirm="¿ Estas Seguro de ELiminar este registro?"
+                    ></i>
+                    <i 
+                        class="bi bi-pencil-square" 
+                        style="cursor: pointer;"
+                        hx-get="{% url 'control:edit_brand' o.id %}"
+                        hx-target="#frm"
+                    ></i>
                 </td>
             </tr>
         {% endfor %}
@@ -23,3 +34,14 @@
 {% else %}
 <p>No hay registros</p>
 {% endif %}
+<input 
+type="text" 
+class="form-control" 
+aria-describedby="idhelp" 
+name="id"  
+id="id" 
+placeholder="Id" 
+readonly 
+value="{{ reg.id }}"
+hx-swap-oob="true"
+>
