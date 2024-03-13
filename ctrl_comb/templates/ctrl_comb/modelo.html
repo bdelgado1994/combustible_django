@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% include "partials/_title.html" with titulo="Modelos Vehiculo" %}
+{% block content %}
+{% include "partials/_card_start.html" with titulo="Modelos" %}
+    <table id="tbl" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marca</th>
+                <th>Model</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in obj %}
+                <td>{{ o.id }}</td>
+                <td>{{ o.brand.description }}</td>
+                <td>{{ o.description }}</td>
+                <td></td>
+                <td></td>
+            {% endfor %}
+        </tbody>
+    </table>
+{% include "partials/_card_end.html" %}
+{% endblock content %}
+{% block js %}
+{% endblock js %}

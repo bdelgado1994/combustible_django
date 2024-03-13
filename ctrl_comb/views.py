@@ -51,3 +51,9 @@ def brand_edit(request,pk=None):
     context["form"]=frm
     context["obj"]=o
     return render(request,template_name,context=context)
+
+class ModeloList (ListView):
+    template_name='ctrl_comb/modelo.html'
+    context_object_name="obj"
+    model=Modelo
+    ordering=["brand","description"]

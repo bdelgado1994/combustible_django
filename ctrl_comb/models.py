@@ -11,7 +11,7 @@ class Brand(models.Model):
         verbose_name="Marca"
         verbose_name_plural="Marcas"
 
-class Models(models.Model):
+class Modelo(models.Model):
     description=models.CharField(
         max_length=50,
         db_comment="Descripcion del modelo de Vehiculo"
