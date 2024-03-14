@@ -4,22 +4,26 @@
 {% include "partials/_title.html" with titulo="Modelos Vehiculo" %}
 {% block content %}
 {% include "partials/_card_start.html" with titulo="Modelos" %}
+    <a href="{% url 'control:model_new' %}" class="btn btn-sm btn-warning"><i class="bi bi-plus-circle"></i> Nuevo</a>
     <table id="tbl" class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Marca</th>
-                <th>Model</th>
+                <th>Modelo</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for o in obj %}
-                <td>{{ o.id }}</td>
-                <td>{{ o.brand.description }}</td>
-                <td>{{ o.description }}</td>
-                <td></td>
-                <td></td>
+                <tr>
+                    <td>{{ o.id }}</td>
+                    <td>{{ o.brand }}</td>
+                    <td>{{ o.description }}</td>
+                    <td>
+                        <a href="{% url 'control:model_edit' o.id %}" class="btn btn-sm btn-info"><i class="bi bi-pencil-square"></i></a>
+                    </td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>

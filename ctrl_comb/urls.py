@@ -7,4 +7,6 @@ urlpatterns = [
     path("brand/edit/<int:pk>",brand_edit,name="edit_brand"),
     #Modelo
     path("models",ModeloList.as_view(),name="model_list"),
+    path("models/new",ModeloNew.as_view(),name="model_new"),
+    path("models/<int:pk>",ModeloEdit.as_view(),name="model_edit"),
 ]
