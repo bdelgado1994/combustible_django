@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Delete{% endblock title %}
+{% block content %}
+{% include "partials/_title.html" with titulo="Borrar" %}
+
+<div class="col-4 m-auto">
+  <div class="card border-danger mb-3">
+    <div class="card-header">Eliminar</div>
+    <div class="card-body">
+      <h4 class="card-title">
+        ¿ Eliminar {{ obj }} ?
+      </h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger"><i class="far fa-question-circle"></i> Si, Elimnar</button>
+                <a href="{{ request.META.HTTP_REFER }}" class="btn btn-success"><span class="fa fa-undo"></span> No, Cancelar</a>
+            </form>
+    </div>
+</div>
+</div>
+
+{% endblock content %}

@@ -9,4 +9,5 @@ urlpatterns = [
     path("models",ModeloList.as_view(),name="model_list"),
     path("models/new",ModeloNew.as_view(),name="model_new"),
     path("models/<int:pk>",ModeloEdit.as_view(),name="model_edit"),
+    path("models/delete/<int:pk>",ModeloDelete.as_view(),name="model_delete"),
 ]

@@ -72,3 +72,9 @@ class ModeloEdit(UpdateView):
     context_object_name="obj"
     form_class=ModeloForm
     success_url=reverse_lazy("control:model_list")
+
+class ModeloDelete(DeleteView):
+    model=Modelo
+    template_name="base/delete.html"
+    context_object_name="obj"
+    success_url=reverse_lazy("control:model_list")

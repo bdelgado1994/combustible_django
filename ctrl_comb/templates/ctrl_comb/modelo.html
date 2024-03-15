@@ -22,6 +22,8 @@
                     <td>{{ o.description }}</td>
                     <td>
                         <a href="{% url 'control:model_edit' o.id %}" class="btn btn-sm btn-info"><i class="bi bi-pencil-square"></i></a>
+                        <a href="{% url 'control:model_delete' o.id %}" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                        <button class="btn btn-danger btn-sm" onclick="borrar('{{ o.id }}','{{ o.description }}')">Borrate</button>
                     </td>
                 </tr>
             {% endfor %}
@@ -30,4 +32,37 @@
 {% include "partials/_card_end.html" %}
 {% endblock content %}
 {% block js %}
+<script>
+    const borrar=(id,description)=>{
+        Swal.fire({
+            title: "¿Procedo?",
+            text: "Estas Seguro que quieres eliminar "+description+" ?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, Eliminalo!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                let url=`{% url 'control:model_list'%}/delete/${id}`;
+                $.ajax({
+                    headers:{"X-CSRFToken":"{{ csrf_token }}"},
+                    type:"POST",
+                    url:url,
+                    success:(r,textStatus,xhr)=>{
+                        if(xhr.status===200){
+                            Swal.fire(
+                                "Borrado",
+                                `${description} Borrado Sastifactoriament`,
+                                'success').then(()=>location.reload());
+                        }
+                    },
+                    error:(jqXHR,textStatus,error)=>{
+                        Swal.fire("Error",textStatus,"error")
+                    }
+                })
+            }
+          });
+    }
+</script>
 {% endblock js %}
